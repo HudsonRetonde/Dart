@@ -5,11 +5,22 @@ void main() {
   String sabor = "Doce e cítrica";
   int diasDeColheita = 40;
   bool isMadura = funcEstaMadura(diasDeColheita);
-  print(isMadura);
-  print(funcEstaMadura(15));
-  mostrarMadura(nome, diasDeColheita, cor: "orange");
-  funcQuantosDiasMadura(15, nome);
-  funcQuantosDiasMadura(diasDeColheita, nome);
+
+  Fruta fruta01 = Fruta(nome, peso, cor, sabor, diasDeColheita);
+  Fruta fruta02 = Fruta("Limão", 122.00, "verde", "cítrica", 34);
+  print(fruta01.nome);
+  print(fruta02.nome);
+}
+
+class Fruta {
+  String nome;
+  double peso;
+  String cor;
+  String sabor;
+  int DiasDeColheira;
+  bool? isMadura;
+  Fruta(this.nome, this.peso, this.cor, this.sabor, this.DiasDeColheira,
+      {this.isMadura});
 }
 
 bool funcEstaMadura(int dias) {
