@@ -23,8 +23,46 @@ class Fruta {
       {this.isMadura});
   estaMadura(int diasMadura) {
     isMadura = DiasDeColheira >= diasMadura;
-    print("A sua $nome foi colhida a $DiasDeColheira dias, e precisa de $diasMadura para ser comida. Ela está madura? $isMadura.");
+    print(
+        "A sua $nome foi colhida a $DiasDeColheira dias, e precisa de $diasMadura para ser comida. Ela está madura? $isMadura.");
   }
+}
+
+class Alimento {
+  String nome;
+  double peso;
+  String cor;
+  Alimento(this.nome, this.peso, this.cor);
+}
+
+class Legumes {
+  String nome;
+  double peso;
+  String cor;
+  bool IsPrecisaCozinha;
+  Legumes(this.nome, this.peso, this.cor, this.IsPrecisaCozinha);
+}
+
+class Citricas {
+  String nome;
+  double peso;
+  String cor;
+  int diaDeColheita;
+  bool? isMadura;
+  double nivelAzedo;
+  Citricas(this.nome, this.peso, this.cor, this.diaDeColheita, this.isMadura,
+      this.nivelAzedo);
+}
+
+class FrutasSecas {
+  String nome;
+  double peso;
+  String cor;
+  int diaDeColheita;
+  bool? isMadura;
+  double porcentagemOleoNatural;
+  FrutasSecas(this.nome, this.peso, this.cor, this.diaDeColheita, this.isMadura,
+      this.porcentagemOleoNatural);
 }
 
 bool funcEstaMadura(int dias) {
