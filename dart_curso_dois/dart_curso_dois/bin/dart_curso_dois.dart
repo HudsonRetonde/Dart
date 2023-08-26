@@ -10,6 +10,18 @@ void main() {
   Fruta fruta02 = Fruta("Limão", 122.00, "verde", "cítrica", 34);
   print(fruta01.estaMadura(50));
   print(fruta02.estaMadura(10));
+
+  Legumes mandioca = Legumes('Macaxeira', 1200, 'Marron', true);
+  mandioca.printAlimento();
+
+  Fruta banana1 = Fruta("Banana", 75, "Amarela", "doce", 12);
+  banana1.printAlimento();
+
+  FrutasSecas nozes = FrutasSecas("nozes", 0.125, 'bege', 'doce', 115, 35);
+  nozes.printAlimento();
+
+  Citricas limao1 = Citricas('Limão', 100, 'verde', 'azedo', 6, 9);
+  limao1.printAlimento();
 }
 
 class Fruta extends Alimento {
@@ -55,26 +67,26 @@ class Legumes extends Alimento {
   }
 }
 
-class Citricas {
-  String nome;
-  double peso;
-  String cor;
-  int diaDeColheita;
-  bool? isMadura;
+class Citricas extends Fruta {
   double nivelAzedo;
-  Citricas(this.nome, this.peso, this.cor, this.diaDeColheita, this.isMadura,
-      this.nivelAzedo);
+  Citricas(String nome, double peso, String cor, String sabor,
+      int diaDeColheita, this.nivelAzedo)
+      : super(nome, peso, cor, sabor, diaDeColheita);
+
+  exiteRefri(bool existe) {
+    if (existe) {
+      print("Existe refrigente de $nome!");
+    } else {
+      print("Não existe refrigernte de $nome...");
+    }
+  }
 }
 
-class FrutasSecas {
-  String nome;
-  double peso;
-  String cor;
-  int diaDeColheita;
-  bool? isMadura;
+class FrutasSecas extends Fruta {
   double porcentagemOleoNatural;
-  FrutasSecas(this.nome, this.peso, this.cor, this.diaDeColheita, this.isMadura,
-      this.porcentagemOleoNatural);
+  FrutasSecas(String nome, double peso, String cor, String sabor,
+      int diaDeColheita, this.porcentagemOleoNatural)
+      : super(nome, peso, cor, sabor, diaDeColheita);
 }
 
 bool funcEstaMadura(int dias) {
