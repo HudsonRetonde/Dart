@@ -1,3 +1,4 @@
+
 void main() {
   String nome = "Laranja";
   double peso = 100.2;
@@ -16,15 +17,16 @@ void main() {
 
   Fruta banana1 = Fruta("Banana", 75, "Amarela", "doce", 12);
   banana1.printAlimento();
+  banana1.separarIngredientes();
 
   FrutasSecas nozes = FrutasSecas("nozes", 0.125, 'bege', 'doce', 115, 35);
   nozes.printAlimento();
-
+  nozes.fazerMassa();
   Citricas limao1 = Citricas('Limão', 100, 'verde', 'azedo', 6, 9);
   limao1.printAlimento();
 }
 
-class Fruta extends Alimento {
+class Fruta extends Alimento implements Bolo {
   String sabor;
   int DiasDeColheira;
   bool? isMadura;
@@ -41,6 +43,21 @@ class Fruta extends Alimento {
   fazerSuco() {
     print("Você fez um ótimo suco!");
   }
+
+  @override
+  separarIngredientes() {
+    print("COlher o(a) $nome.");
+  }
+
+  @override
+  assar() {
+    print("Colocar no forno.");
+  }
+
+  @override
+  fazerMassa() {
+    print("Misturar a fruta com farinha, açucar, ovos e etc...");
+  }
 }
 
 class Alimento {
@@ -54,7 +71,7 @@ class Alimento {
   }
 }
 
-class Legumes extends Alimento {
+class Legumes extends Alimento implements Bolo {
   bool IsPrecisaCozinha;
   Legumes(String nome, double peso, String cor, this.IsPrecisaCozinha)
       : super(nome, peso, cor);
@@ -64,6 +81,24 @@ class Legumes extends Alimento {
     } else {
       print("Este legume nem precisa conzinhar...");
     }
+  }
+
+  @override
+  assar() {
+    // TODO: implement assar
+    throw UnimplementedError();
+  }
+
+  @override
+  fazerMassa() {
+    // TODO: implement fazerMassa
+    throw UnimplementedError();
+  }
+
+  @override
+  separarIngredientes() {
+    // TODO: implement separarIngredientes
+    throw UnimplementedError();
   }
 }
 
@@ -87,6 +122,11 @@ class FrutasSecas extends Fruta {
   FrutasSecas(String nome, double peso, String cor, String sabor,
       int diaDeColheita, this.porcentagemOleoNatural)
       : super(nome, peso, cor, sabor, diaDeColheita);
+  @override
+  void fazerMassa() {
+    print("tirar a casca.");
+    super.fazerMassa();
+  }
 }
 
 bool funcEstaMadura(int dias) {
@@ -117,4 +157,12 @@ funcQuantosDiasMadura(int dias, String fruta) {
   } else {
     print("Faltam $quantosDiasFaltam para a $fruta ficar madura.");
   }
+}
+
+abstract class Bolo {
+  separarIngredientes();
+
+  fazerMassa();
+
+  assar();
 }
