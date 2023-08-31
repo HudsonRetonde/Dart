@@ -1,7 +1,7 @@
 import 'package:dart_curso_tres/dart_curso_tres.dart' as dart_curso_tres;
 
 void main() {
-  escolherMeiosDeTransporteEnum(Transporte.bike);
+  escolherMeiosDeTransporteEnum(Transporte.barco);
 }
 
 void escolherMeioDeTransporte(int locomocao) {
@@ -14,23 +14,36 @@ void escolherMeioDeTransporte(int locomocao) {
   }
 }
 
-void escolherMeiosDeTransporteEnum(Transporte locomocao){
-  if (locomocao == Transporte.carro) {
-    print("Vou de carro para a aventura");
-  } else if (locomocao == Transporte.bike) {
-    print("Vou de bike para a aventura");
-  } else {
-    print("Só sei que vou para aventura, como? Ainda não sei!");
+void escolherMeiosDeTransporteEnum(Transporte locomocao) {  
+  switch (locomocao) {
+    case Transporte.carro:
+      print("Vou de carro para a aventura");
+      break;
+    case Transporte.bike:
+      print("Vou de bike para a aventura");
+      break;
+    case Transporte.aviao:
+      print("Vou de avião par a aventura");
+      break;
+    case Transporte.cavalo:
+      print("Vou a cavalo para a aventura");
+      break;
+    case Transporte.moto:
+      print("Vou de moto para a aventura");
+      break;
+    case Transporte.patins:
+      print("Vou de patins para aventura");
+      break;
+    case Transporte.skate:
+      print("Vou de skate para aventura");
+      break;
+    case Transporte.andando:
+      print("Vou andando para a aventura");
+      break;
+    default:
+      print("Só sei que vou para aventura, como? Ainda não sei!");
+      break;
   }
 }
 
-enum Transporte {
-  carro,
-  bike,
-  andando,
-  moto, 
-  cavalo,
-  skate,
-  aviao,
-  patins
-}
+enum Transporte { carro, bike, andando, moto, cavalo, skate, aviao, patins, barco }
