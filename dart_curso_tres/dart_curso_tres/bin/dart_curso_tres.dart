@@ -14,7 +14,7 @@ void escolherMeioDeTransporte(int locomocao) {
   }
 }
 
-void escolherMeiosDeTransporteEnum(Transporte locomocao) {  
+void escolherMeiosDeTransporteEnum(Transporte locomocao) {
   switch (locomocao) {
     case Transporte.carro:
       print("Vou de carro para a aventura");
@@ -46,4 +46,15 @@ void escolherMeiosDeTransporteEnum(Transporte locomocao) {
   }
 }
 
-enum Transporte { carro, bike, andando, moto, cavalo, skate, aviao, patins, barco }
+enum Transporte {
+  carro,
+  bike,
+  andando,
+  moto,
+  cavalo,
+  skate,
+  aviao,
+  patins,
+  barco,
+  navio
+}
