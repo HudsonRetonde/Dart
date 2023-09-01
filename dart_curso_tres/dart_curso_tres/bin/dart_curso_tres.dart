@@ -1,17 +1,19 @@
 import 'package:dart_curso_tres/dart_curso_tres.dart' as dart_curso_tres;
 
 void main() {
-  escolherMeiosDeTransporteEnum(Transporte.barco);
+  //escolherMeiosDeTransporteEnum(Transporte.barco);
+
+  Set<String> registrosVisitados = <String>{};
+  registrosVisitados = registrarDestinos("Rio de Janeiro", registrosVisitados);
+  registrosVisitados = registrarDestinos("Guarapari", registrosVisitados);
+  registrosVisitados = registrarDestinos("São Paulo", registrosVisitados);
+  registrosVisitados = registrarDestinos("Belo Horizonte", registrosVisitados);
+  print(registrosVisitados);
 }
 
-void escolherMeioDeTransporte(int locomocao) {
-  if (locomocao == 0) {
-    print("Vou de carro para a aventura");
-  } else if (locomocao == 1) {
-    print("Vou de bike para a aventura");
-  } else {
-    print("Só sei que vou para aventura, como? Ainda não sei!");
-  }
+Set<String> registrarDestinos(String destino, Set<String> banco) {
+  banco.add(destino);
+  return banco;
 }
 
 void escolherMeiosDeTransporteEnum(Transporte locomocao) {
