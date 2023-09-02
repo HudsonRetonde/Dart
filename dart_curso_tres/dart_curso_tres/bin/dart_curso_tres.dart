@@ -8,7 +8,14 @@ void main() {
   registrosVisitados = registrarDestinos("Guarapari", registrosVisitados);
   registrosVisitados = registrarDestinos("São Paulo", registrosVisitados);
   registrosVisitados = registrarDestinos("Belo Horizonte", registrosVisitados);
-  print(registrosVisitados);
+
+  Map<String, dynamic> registrarPrecos = {};
+  registrarPrecos["São Paulo"] = 1200;
+  registrarPrecos["Rio de Janeiro"] = 1500;
+  registrarPrecos.remove("São Paulo");
+  registrarPrecos["Noruega"] = "Muito caro!";
+
+  print(registrarPrecos);
 }
 
 Set<String> registrarDestinos(String destino, Set<String> banco) {
