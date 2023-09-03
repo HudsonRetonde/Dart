@@ -16,6 +16,10 @@ void main() {
   registrarPrecos["Noruega"] = "Muito caro!";
 
   print(registrarPrecos);
+
+  Viagem viagemHoje = Viagem();
+  print(viagemHoje.dinheiro = 5.56);
+  print(Viagem.codigotrabalho);
 }
 
 Set<String> registrarDestinos(String destino, Set<String> banco) {
@@ -66,4 +70,9 @@ enum Transporte {
   patins,
   barco,
   navio
+}
+
+class Viagem {
+  static String codigotrabalho = "DJNADS12";
+  double dinheiro = 0;
 }
